@@ -2,7 +2,7 @@ import org.example.arge.CarSkeleton;
 import org.example.arge.ElectricCar;
 import org.example.arge.GasPoweredCar;
 import org.example.arge.HybridCar;
-import org.example.company.Car;
+import org.example.company.Car;  // BU SATIR EKSİKTİ!
 import org.example.company.Ford;
 import org.example.company.Holden;
 import org.example.company.Mitsubishi;
@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(ResultAnalyzer.class)
 public class MainTest {
 
-    Car car;
+    Car car;  // Artık Car sınıfını tanıyacak
     Mitsubishi mitsubishi;
     Holden holden;
     Ford ford;
@@ -75,6 +75,7 @@ public class MainTest {
         System.setOut(new PrintStream(out));
         assertEquals(car.startEngine(), "the car's engine is starting");
         assertThat(out.toString(), containsString(car.getClass().getSimpleName()));
+        System.setOut(saveOut);  // Output'u geri yükle
     }
 
     @DisplayName("Car accelerate metodu doğru çalışıyor mu ?")
@@ -85,6 +86,7 @@ public class MainTest {
         System.setOut(new PrintStream(out));
         assertEquals(car.accelerate(), "the car is accelerating");
         assertThat(out.toString(), containsString(car.getClass().getSimpleName()));
+        System.setOut(saveOut);  // Output'u geri yükle
     }
 
     @DisplayName("Car brake metodu doğru çalışıyor mu ?")
@@ -95,6 +97,7 @@ public class MainTest {
         System.setOut(new PrintStream(out));
         assertEquals(car.brake(), "the car is braking");
         assertThat(out.toString(), containsString(car.getClass().getSimpleName()));
+        System.setOut(saveOut);  // Output'u geri yükle
     }
 
     @DisplayName("Mitsubishi, Ford, Holden doğru sınıf tipinde mi ?")
@@ -146,7 +149,7 @@ public class MainTest {
         assertThat(hybridCar.getName(), instanceOf(String.class));
         assertThat(hybridCar.getDescription(), instanceOf(String.class));
         assertThat(hybridCar.getCylinders(), instanceOf(Integer.class));
-        assertThat(hybridCar.getAvgKmPerLitre(), instanceOf(Double.class))
+        assertThat(hybridCar.getAvgKmPerLitre(), instanceOf(Double.class));
         assertThat(hybridCar.getBatterySize(), instanceOf(Integer.class));
     }
 
